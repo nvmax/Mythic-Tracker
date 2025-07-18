@@ -5,7 +5,7 @@
 *.db
 *.sqlite
 *.sqlite3
-
+apireply.txt
 # Python
 __pycache__/
 *.py[cod]
@@ -27,7 +27,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-
+variables.txt
 # Virtual Environment
 venv/
 ENV/
