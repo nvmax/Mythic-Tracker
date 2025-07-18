@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Successful - Mythic+ Tracker Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #3447cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background: #3447cc;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #2a37a0;
+        }
+        .card {
+            background: #2d2d2d;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .success-icon {
+            color: #4caf50;
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .command-list {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3447cc;
+        }
+        .command-list code {
+            background-color: #383838;
+            color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        code {
+            background-color: #383838;
+            color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        a {
+            color: #5c9ce6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Configuration Successful!</h1>
+            <p>Your Mythic+ Tracker Bot is now set up and ready to use</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="success-icon">✅</div>
+            <h2 style="text-align: center;">Your bot is ready to use</h2>
+            <p>The Mythic+ Tracker Bot has been successfully configured for your Discord server. You can now start tracking your characters!</p>
+        </div>
+
+        <div class="card">
+            <h2>Next Steps</h2>
+            <p>Here are some commands you can use to get started:</p>
+
+            <div class="command-list">
+                <p><strong>Track a character:</strong><br>
+                <code>/track name realm [region]</code></p>
+
+                <p><strong>Example:</strong><br>
+                <code>/track stonehenge deathwing us</code></p>
+
+                <p><strong>List tracked characters:</strong><br>
+                <code>/list</code></p>
+
+                <p><strong>Check for new runs:</strong><br>
+                <code>/check_runs name realm [region]</code></p>
+
+                <p><strong>Stop tracking a character:</strong><br>
+                <code>/untrack name realm [region]</code></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>How It Works</h2>
+            <p>The bot checks the Raider.io API every minute for new Mythic+ runs completed by tracked players. When a new run is detected, it sends a formatted notification to your configured Discord channel.</p>
+            <p>The notification includes details about the run, such as:</p>
+            <ul>
+                <li>Dungeon name and level</li>
+                <li>Completion time and whether it was timed</li>
+                <li>Score earned</li>
+                <li>Group members and their roles</li>
+                <li>Links to the run and character profiles</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

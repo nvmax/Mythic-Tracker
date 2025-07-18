@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Mythic+ Tracker Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #3447cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background: #3447cc;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #2a37a0;
+        }
+        .card {
+            background: #2d2d2d;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .command-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .command-table th, .command-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        .command-table th {
+            background-color: #333;
+        }
+        .command-table tr:hover {
+            background-color: #3a3a3a;
+        }
+        .command-table code {
+            background-color: #383838;
+            color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #5c9ce6;
+        }
+        code {
+            background-color: #383838;
+            color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        a {
+            color: #5c9ce6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mythic+ Tracker Bot Help</h1>
+            <p>Learn how to use the Mythic+ Tracker Bot</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Commands</h2>
+            <table class="command-table">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>/track</code></td>
+                    <td>Track a player's Mythic+ runs</td>
+                    <td><code>/track stonehenge deathwing us</code></td>
+                </tr>
+                <tr>
+                    <td><code>/untrack</code></td>
+                    <td>Stop tracking a player</td>
+                    <td><code>/untrack stonehenge deathwing us</code></td>
+                </tr>
+                <tr>
+                    <td><code>/list</code></td>
+                    <td>List all tracked players in your server</td>
+                    <td><code>/list</code></td>
+                </tr>
+                <tr>
+                    <td><code>/check_runs</code></td>
+                    <td>Force check for new runs for a specific character</td>
+                    <td><code>/check_runs stonehenge deathwing us</code></td>
+                </tr>
+                <tr>
+                    <td><code>/check_all</code></td>
+                    <td>Force check for new runs for all tracked characters (admin only)</td>
+                    <td><code>/check_all</code></td>
+                </tr>
+                <tr>
+                    <td><code>/set_channel</code></td>
+                    <td>Set the channel for notifications (admin only)</td>
+                    <td><code>/set_channel #mythic-runs</code></td>
+                </tr>
+                <tr>
+                    <td><code>/ping</code></td>
+                    <td>Check if the bot is responding</td>
+                    <td><code>/ping</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How often does the bot check for new runs?</div>
+                <div class="faq-answer">The bot checks for new runs every minute by default.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I track players from different regions?</div>
+                <div class="faq-answer">Yes, you can track players from any region (US, EU, KR, TW, CN). Just specify the region when using the <code>/track</code> command.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I change the notification channel?</div>
+                <div class="faq-answer">Server administrators can use the <code>/set_channel</code> command to change the notification channel, or use the web interface to configure it.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why am I not seeing notifications?</div>
+                <div class="faq-answer">
+                    Make sure:
+                    <ul>
+                        <li>The bot has permission to send messages in the configured channel</li>
+                        <li>You've tracked at least one character using the <code>/track</code> command</li>
+                        <li>The tracked character has completed a new Mythic+ run since you started tracking them</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I track multiple characters?</div>
+                <div class="faq-answer">Yes, you can track as many characters as you want. Use the <code>/track</code> command for each character you want to track.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

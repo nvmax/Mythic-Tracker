@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythic+ Tracker Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #3447cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background: #3447cc;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #2a37a0;
+        }
+        .card {
+            background: #2d2d2d;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #3a3a3a;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        code {
+            background-color: #383838;
+            color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        a {
+            color: #5c9ce6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mythic+ Tracker Bot</h1>
+            <p>Track your World of Warcraft Mythic+ runs with our Discord bot!</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Get Started</h2>
+            <p>Follow these simple steps to add the Mythic+ Tracker Bot to your Discord server:</p>
+            <ol>
+                <li>Click the "Add to Discord" button below to invite the bot to your server</li>
+                <li><strong>Required:</strong> After adding the bot, use the "Configure Bot" button to set up the notification channel</li>
+                <li>Start tracking your characters with the <code>/track</code> command in Discord</li>
+            </ol>
+            <p><strong>Note:</strong> The bot will not work until you configure a notification channel for your server. This is a required step.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://discord.com/oauth2/authorize?client_id=1366431864411258911&permissions=139586816000&integration_type=0&scope=bot" class="btn" target="_blank" style="font-size: 18px; padding: 15px 30px;">Add to Discord</a>
+                <a href="{{ url_for('setup') }}" class="btn" style="font-size: 18px; padding: 15px 30px;">Configure Bot</a>
+            </div>
+            <div style="margin-top: 15px; text-align: center;">
+                <p>Direct invite link (copy and paste if needed):</p>
+                <code style="word-break: break-all; display: block; padding: 10px; margin: 10px 0;">https://discord.com/oauth2/authorize?client_id=1366431864411258911&permissions=139586816000&integration_type=0&scope=bot</code>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Features</h2>
+            <ul class="feature-list">
+                <li>Track players' Mythic+ runs using the Raider.io API</li>
+                <li>Persistent tracking even if the bot restarts</li>
+                <li>Formatted notifications for completed runs</li>
+                <li>Slash commands for easy interaction</li>
+                <li>Channel restriction to keep bot activity in a designated channel</li>
+                <li>Multi-server support - track different players on different servers</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Commands</h2>
+            <ul class="feature-list">
+                <li><code>/track &lt;name&gt; &lt;realm&gt; [region]</code> - Track a player's Mythic+ runs</li>
+                <li><code>/untrack &lt;name&gt; &lt;realm&gt; [region]</code> - Stop tracking a player</li>
+                <li><code>/list</code> - List all tracked players in your server</li>
+                <li><code>/check_runs &lt;name&gt; &lt;realm&gt; [region]</code> - Force check for new runs</li>
+                <li><code>/set_channel #channel</code> - Set the channel for notifications</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Need Help?</h2>
+            <p>Check out our <a href="{{ url_for('help_page') }}">help page</a> for more information on how to use the bot.</p>
+        </div>
+    </div>
+</body>
+</html>
