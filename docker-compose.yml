@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mythic-tracker:
+    build: .
+    container_name: mythic-tracker
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount data directory for persistent database storage
+      - ./data:/app/data
+      # Mount .env file for configuration
+      - ./.env:/app/.env:ro
+    environment:
+      # Override database path to use mounted volume
+      - DATABASE_FILE=/app/data/mythictracker.db
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5000', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - mythic-tracker-network
+
+networks:
+  mythic-tracker-network:
+    driver: bridge

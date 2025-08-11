@@ -71,8 +71,62 @@
       "keystone_timer_seconds": 2040,
       "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_theatreofpain.jpg",
       "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/theater-of-pain.jpg"
+    },
+    "Ara-Kara, City of Echoes": {
+      "id": 15093,
+      "challenge_mode_id": 503,
+      "slug": "arakara-city-of-echoes",
+      "short_name": "ARAK",
+      "keystone_timer_seconds": 1800,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_arak-ara.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/arakara-city-of-echoes.jpg"
+    },
+    "Eco-Dome Al'dani": {
+      "id": 16104,
+      "challenge_mode_id": 542,
+      "slug": "ecodome-aldani",
+      "short_name": "EDA",
+      "keystone_timer_seconds": 1860,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_112_achievement_dungeon_ecodome.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/ecodome-aldani.jpg"
+    },
+    "Halls of Atonement": {
+      "id": 12831,
+      "challenge_mode_id": 378,
+      "slug": "halls-of-atonement",
+      "short_name": "HOA",
+      "keystone_timer_seconds": 1920,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_hallsofattonement.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/halls-of-atonement.jpg"
+    },
+    "Tazavesh: So'leah's Gambit": {
+      "id": 1000001,
+      "challenge_mode_id": 392,
+      "slug": "tazavesh-soleahs-gambit",
+      "short_name": "GMBT",
+      "keystone_timer_seconds": 1800,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_theotherside_dealergexa.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/tazavesh-soleahs-gambit.jpg"
+    },
+    "Tazavesh: Streets of Wonder": {
+      "id": 1000000,
+      "challenge_mode_id": 391,
+      "slug": "tazavesh-streets-of-wonder",
+      "short_name": "STRT",
+      "keystone_timer_seconds": 1920,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_brokerdungeon.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/tazavesh-streets-of-wonder.jpg"
+    },
+    "The Dawnbreaker": {
+      "id": 14971,
+      "challenge_mode_id": 505,
+      "slug": "the-dawnbreaker",
+      "short_name": "DAWN",
+      "keystone_timer_seconds": 1860,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_dawnbreaker.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/the-dawnbreaker.jpg"
     }
   },
-  "last_updated": "2025-05-31T21:51:19.347028",
-  "current_season": "season-tww-2"
+  "last_updated": "2025-08-10T21:07:39.879590",
+  "current_season": "season-tww-3"
 }

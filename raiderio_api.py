@@ -69,11 +69,37 @@ class RaiderIO:
 
         print(f"Fetching detailed information for run {run_id}")
 
-        # Get the run details
-        run_details = await self.get_mythic_plus_run(run_id)
+        # Try to extract season from the run URL
+        season_to_use = None
+        run_url = run_data.get("url", "")
+        if run_url:
+            if "season-tww-3" in run_url:
+                season_to_use = "season-tww-3"
+            elif "season-tww-2" in run_url:
+                season_to_use = "season-tww-2"
+            elif "season-tww-1" in run_url:
+                season_to_use = "season-tww-1"
+            print(f"Extracted season from URL: {season_to_use}")
+
+        # If no season found in URL, try current season first, then fall back to previous seasons
+        seasons_to_try = []
+        if season_to_use:
+            seasons_to_try.append(season_to_use)
+        else:
+            seasons_to_try = [CURRENT_SEASON, "season-tww-2", "season-tww-1"]
+            print(f"No season in URL, will try: {seasons_to_try}")
+
+        # Try each season until we get data
+        run_details = None
+        for season in seasons_to_try:
+            print(f"Trying season: {season}")
+            run_details = await self.get_mythic_plus_run(run_id, season)
+            if run_details:
+                print(f"✅ Got run details with season: {season}")
+                break
 
         if not run_details:
-            print(f"No details found for run {run_id}")
+            print(f"No details found for run {run_id} after trying all seasons")
             return run_data
 
         print(f"Got details for run {run_id}")
@@ -102,7 +128,11 @@ class RaiderIO:
                     return await response.json()
                 else:
                     error_text = await response.text()
-                    print(f"API Error ({response.status}): {error_text}")
+                    # Be less noisy about 404 errors for run details - this is expected
+                    if response.status == 404 and "run-details" in endpoint:
+                        print(f"Run details not available (404) - this is normal for older runs")
+                    else:
+                        print(f"API Error ({response.status}): {error_text}")
                     return None
         except aiohttp.ClientError as e:
             print(f"Request error: {e}")

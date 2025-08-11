@@ -40,3 +40,9 @@ ENV/
 
 # Logs
 *.log
+
+# Docker
+data/
+
+# Local environment files
+.env

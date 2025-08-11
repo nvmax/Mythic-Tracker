@@ -347,7 +347,7 @@ def create_run_embed(run_data, character_data):
                     if not isinstance(season, dict):
                         continue
 
-                    if season.get("season") == "season-tww-2":  # Current season
+                    if season.get("season") == config.CURRENT_SEASON:  # Current season
                         scores = season.get("scores", {})
                         if isinstance(scores, dict):
                             score = f"{scores.get('all', 0):.1f}"
@@ -366,14 +366,19 @@ def create_run_embed(run_data, character_data):
             else:
                 unknown.append(player_string)
 
-            # Add a note that full group information is not available
-            unknown.append("*Full group information not available*")
-
         # Combine all members in the correct order: tank, healer, dps, unknown
         all_members = tanks + healers + dps + unknown
 
         if all_members:
-            embed.add_field(name="Group Members", value="\n".join(all_members), inline=False)
+            # Determine the field name based on available data
+            if roster and len(roster) > 1:
+                field_name = "Group Members"
+            else:
+                field_name = "Tracked Player"
+                # Add a helpful note about group data
+                all_members.append("*Group roster data not available for this run*")
+
+            embed.add_field(name=field_name, value="\n".join(all_members), inline=False)
 
         # Add footer with timestamp
         embed.set_footer(text=f"Completed at {completed_at}")
