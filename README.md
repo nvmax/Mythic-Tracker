@@ -51,8 +51,8 @@ A Discord bot that tracks World of Warcraft Mythic+ runs from Raider.io API and 
 
    # Current expansion and season (required)
    CURRENT_EXPANSION=10
-   CURRENT_SEASON=season-tww-2
-   CURRENT_SEASON_SHORT=TWW2
+   CURRENT_SEASON=season-tww-3
+   CURRENT_SEASON_SHORT=TWW3
 
    # Discord embed color (required)
    EMBED_COLOR=3447003

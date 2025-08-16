@@ -222,8 +222,16 @@ async def check_mythic_runs():
                     logger.error(f"Error fetching detailed run information: {e}")
                     logger.error(traceback.format_exc())
 
-                # Check if this is a new run
+                # Check if this is a new run and from Season 3
                 run_id = latest_run.get("mythic_plus_id", 0)
+                run_url = latest_run.get("url", "")
+
+                # Only track Season 3 runs
+                if 'season-tww-3' not in run_url:
+                    logger.info(f"Skipping non-Season 3 run for {player['name']}-{player['realm']}: {run_id}")
+                    db.update_player_last_checked(player['id'])
+                    continue
+
                 if run_id > player['last_run_id']:
                     logger.info(f"New run found for {player['name']}-{player['realm']}: {run_id} (previous: {player['last_run_id']})")
 

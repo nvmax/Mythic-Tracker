@@ -1,77 +1,5 @@
 {
   "dungeons": {
-    "Cinderbrew Meadery": {
-      "id": 15103,
-      "challenge_mode_id": 506,
-      "slug": "cinderbrew-meadery",
-      "short_name": "BREW",
-      "keystone_timer_seconds": 1980,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_cinderbrewmeadery.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/cinderbrew-meadery.jpg"
-    },
-    "Darkflame Cleft": {
-      "id": 14882,
-      "challenge_mode_id": 504,
-      "slug": "darkflame-cleft",
-      "short_name": "DFC",
-      "keystone_timer_seconds": 1860,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_darkflamecleft.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/darkflame-cleft.jpg"
-    },
-    "Mechagon Workshop": {
-      "id": 800002,
-      "challenge_mode_id": 370,
-      "slug": "operation-mechagon-workshop",
-      "short_name": "WORK",
-      "keystone_timer_seconds": 1920,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_boss_mechagon.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion7/base/operation-mechagon-workshop.jpg"
-    },
-    "Operation: Floodgate": {
-      "id": 15452,
-      "challenge_mode_id": 525,
-      "slug": "operation-floodgate",
-      "short_name": "FLOOD",
-      "keystone_timer_seconds": 1980,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_waterworks.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/operation-floodgate.jpg"
-    },
-    "Priory of the Sacred Flame": {
-      "id": 14954,
-      "challenge_mode_id": 499,
-      "slug": "priory-of-the-sacred-flame",
-      "short_name": "PSF",
-      "keystone_timer_seconds": 1950,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_prioryofthesacredflame.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/priory-of-the-sacred-flame.jpg"
-    },
-    "The MOTHERLODE!!": {
-      "id": 8064,
-      "challenge_mode_id": 247,
-      "slug": "the-motherlode",
-      "short_name": "ML",
-      "keystone_timer_seconds": 1980,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_kezan.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion7/base/the-motherlode.jpg"
-    },
-    "The Rookery": {
-      "id": 14938,
-      "challenge_mode_id": 500,
-      "slug": "the-rookery",
-      "short_name": "ROOK",
-      "keystone_timer_seconds": 1740,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_rookery.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/the-rookery.jpg"
-    },
-    "Theater of Pain": {
-      "id": 12841,
-      "challenge_mode_id": 382,
-      "slug": "theater-of-pain",
-      "short_name": "TOP",
-      "keystone_timer_seconds": 2040,
-      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_theatreofpain.jpg",
-      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/theater-of-pain.jpg"
-    },
     "Ara-Kara, City of Echoes": {
       "id": 15093,
       "challenge_mode_id": 503,
@@ -99,6 +27,24 @@
       "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_hallsofattonement.jpg",
       "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/halls-of-atonement.jpg"
     },
+    "Operation: Floodgate": {
+      "id": 15452,
+      "challenge_mode_id": 525,
+      "slug": "operation-floodgate",
+      "short_name": "FLOOD",
+      "keystone_timer_seconds": 1980,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_waterworks.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/operation-floodgate.jpg"
+    },
+    "Priory of the Sacred Flame": {
+      "id": 14954,
+      "challenge_mode_id": 499,
+      "slug": "priory-of-the-sacred-flame",
+      "short_name": "PSF",
+      "keystone_timer_seconds": 1950,
+      "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/inv_achievement_dungeon_prioryofthesacredflame.jpg",
+      "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/priory-of-the-sacred-flame.jpg"
+    },
     "Tazavesh: So'leah's Gambit": {
       "id": 1000001,
       "challenge_mode_id": 392,
@@ -113,7 +59,7 @@
       "challenge_mode_id": 391,
       "slug": "tazavesh-streets-of-wonder",
       "short_name": "STRT",
-      "keystone_timer_seconds": 1920,
+      "keystone_timer_seconds": 2040,
       "icon_url": "https://cdn.raiderio.net/images/wow/icons/large/achievement_dungeon_brokerdungeon.jpg",
       "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion8/base/tazavesh-streets-of-wonder.jpg"
     },
@@ -127,6 +73,6 @@
       "background_image_url": "https://cdn.raiderio.net/images/dungeons/expansion10/base/the-dawnbreaker.jpg"
     }
   },
-  "last_updated": "2025-08-10T21:07:39.879590",
+  "last_updated": "2025-08-13T08:16:10.453804",
   "current_season": "season-tww-3"
 }

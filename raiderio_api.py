@@ -75,19 +75,15 @@ class RaiderIO:
         if run_url:
             if "season-tww-3" in run_url:
                 season_to_use = "season-tww-3"
-            elif "season-tww-2" in run_url:
-                season_to_use = "season-tww-2"
-            elif "season-tww-1" in run_url:
-                season_to_use = "season-tww-1"
             print(f"Extracted season from URL: {season_to_use}")
 
-        # If no season found in URL, try current season first, then fall back to previous seasons
+        # If no season found in URL, use current season only (Season 3)
         seasons_to_try = []
         if season_to_use:
             seasons_to_try.append(season_to_use)
         else:
-            seasons_to_try = [CURRENT_SEASON, "season-tww-2", "season-tww-1"]
-            print(f"No season in URL, will try: {seasons_to_try}")
+            seasons_to_try = [CURRENT_SEASON]
+            print(f"No season in URL, will try current season: {seasons_to_try}")
 
         # Try each season until we get data
         run_details = None
@@ -200,9 +196,22 @@ class RaiderIO:
 
         print(f"Found mythic_plus_recent_runs with {len(data['mythic_plus_recent_runs'])} entries")
 
-        # Debug the first run
-        if data["mythic_plus_recent_runs"] and len(data["mythic_plus_recent_runs"]) > 0:
-            first_run = data["mythic_plus_recent_runs"][0]
+        # Filter for Season 3 runs only
+        season3_runs = []
+        for run in data["mythic_plus_recent_runs"]:
+            if isinstance(run, dict):
+                url = run.get('url', '')
+                if 'season-tww-3' in url:
+                    season3_runs.append(run)
+                else:
+                    # Skip non-Season 3 runs
+                    print(f"Skipping non-Season 3 run: {run.get('dungeon', 'Unknown')} +{run.get('mythic_level', 0)}")
+
+        print(f"Filtered to {len(season3_runs)} Season 3 runs (skipped {len(data['mythic_plus_recent_runs']) - len(season3_runs)} older season runs)")
+
+        # Debug the first Season 3 run
+        if season3_runs and len(season3_runs) > 0:
+            first_run = season3_runs[0]
             if isinstance(first_run, dict):
                 print(f"First run keys: {first_run.keys()}")
                 if "dungeon" in first_run:
@@ -217,7 +226,7 @@ class RaiderIO:
             else:
                 print(f"First run is not a dictionary: {type(first_run)}")
 
-        return data["mythic_plus_recent_runs"]
+        return season3_runs
 
     def get_latest_run(self, runs):
         """Get the latest run from a list of runs"""

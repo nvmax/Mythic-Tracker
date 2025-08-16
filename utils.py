@@ -295,7 +295,7 @@ def create_run_embed(run_data, character_data):
                         if not isinstance(season, dict):
                             continue
 
-                        if season.get("season") == "season-tww-2":  # Current season (The War Within Season 2)
+                        if season.get("season") == config.CURRENT_SEASON:  # Current season
                             scores = season.get("scores", {})
                             if isinstance(scores, dict):
                                 score = f"{scores.get('all', 0):.1f}"
