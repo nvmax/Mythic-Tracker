@@ -1,5 +1,6 @@
 import discord
 import json
+import urllib.parse
 from datetime import datetime, timedelta
 import config
 
@@ -175,9 +176,13 @@ def create_run_embed(run_data, character_data):
         character_realm = character_data.get("realm", "Unknown")
         character_region = character_data.get("region", "us")
 
+        # URL-encode the realm and character names for the Raider.IO URL
+        encoded_realm = urllib.parse.quote(character_realm.lower())
+        encoded_name = urllib.parse.quote(character_name.lower())
+
         embed.set_author(
             name=f"{character_name.capitalize()}-{character_realm.capitalize()} completed a new run!",
-            url=f"https://raider.io/characters/{character_region}/{character_realm}/{character_name}"
+            url=f"https://raider.io/characters/{character_region}/{encoded_realm}/{encoded_name}"
         )
 
         # Add run details
