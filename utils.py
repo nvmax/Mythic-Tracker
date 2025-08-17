@@ -380,6 +380,11 @@ def create_run_embed(run_data, character_data):
 
             embed.add_field(name=field_name, value="\n".join(all_members), inline=False)
 
+        # Add death information if available
+        death_info = get_death_information(run_data, roster)
+        if death_info:
+            embed.add_field(name="Deaths", value=death_info, inline=False)
+
         # Add footer with timestamp
         embed.set_footer(text=f"Completed at {completed_at}")
 
@@ -387,6 +392,70 @@ def create_run_embed(run_data, character_data):
 
     except Exception as e:
         print(f"Error creating embed: {e}")
+        import traceback
+        print(traceback.format_exc())
+        return None
+
+
+def get_death_information(run_data, roster):
+    """Extract death information from run data and return formatted string"""
+    try:
+        # Check if we have logged_details with death data
+        logged_details = run_data.get('logged_details')
+        if not logged_details or not isinstance(logged_details, dict):
+            return None
+
+        deaths = logged_details.get('deaths', [])
+        if not deaths:
+            return "No deaths 🎉"
+
+        # If no roster available, just show total death count
+        if not roster:
+            return f"Total deaths: {len(deaths)}"
+
+        # Create a mapping of character_id to player name
+        char_id_to_name = {}
+        for player in roster:
+            char = player.get('character', {})
+            char_id = char.get('id')
+            char_name = char.get('name', 'Unknown')
+            if char_id:
+                char_id_to_name[char_id] = char_name
+
+        # Count deaths per player
+        death_counts = {}
+        for death in deaths:
+            char_id = death.get('character_id')
+            if char_id in char_id_to_name:
+                player_name = char_id_to_name[char_id]
+                death_counts[player_name] = death_counts.get(player_name, 0) + 1
+
+        # Format the death information
+        if not death_counts:
+            return f"Total deaths: {len(deaths)} (players not identified)"
+
+        # Sort players by death count (highest first)
+        sorted_deaths = sorted(death_counts.items(), key=lambda x: x[1], reverse=True)
+
+        death_lines = []
+        total_deaths = len(deaths)
+
+        # Add each player's death count
+        for player_name, count in sorted_deaths:
+            if count > 0:
+                death_lines.append(f"{player_name}: {count}")
+
+        # If no players had deaths (shouldn't happen if we have death data)
+        if not death_lines:
+            return f"Total deaths: {total_deaths}"
+
+        # Add total at the end
+        death_lines.append(f"**Total: {total_deaths}**")
+
+        return "\n".join(death_lines)
+
+    except Exception as e:
+        print(f"Error processing death information: {e}")
         import traceback
         print(traceback.format_exc())
         return None
